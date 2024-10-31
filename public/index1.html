@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CS Quiz Game</h1>
+    <input type="text" id="search-input" placeholder="Search quizzes">
+    <div class="user-greeting">
+      <span id="greeting"></span>
+      <button id="logout-button" style="display: none;">Logout</button>
+    </div>
+  </header>
+  
+  <section class="quiz-cards" id="quiz-cards">
+    <div class="quiz-card" onclick="startQuiz('States and Capitals')">
+      <h3>States and Capitals</h3>
+      <p>Learn and test your knowledge of states and their capitals.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('Country and its Currency')">
+      <h3>Country and its Currency</h3>
+      <p>Learn and test your knowledge of countries and their currencies.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('Additions')">
+      <h3>Additions</h3>
+      <p>Test your math skills with challenging addition questions.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('Division')">
+      <h3>Division</h3>
+      <p>Challenge yourself with division questions.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('Subtraction')">
+      <h3>Subtraction</h3>
+      <p>Challenge yourself with subtraction questions.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('Multiplication')">
+      <h3>Multiplication</h3>
+      <p>Test your math skills with challenging multiplication questions.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('Countries and their Presidents')">
+      <h3>Countries and their Presidents</h3>
+      <p>Learn and test your knowledge of countries and their presidents.</p>
+    </div>
+    <div class="quiz-card" onclick="startQuiz('CM of the States in India')">
+      <h3>CM of the States in India</h3>
+      <p>Learn and test your knowledge of CMs of the states in India.</p>
+    </div>
+  </section>
+  
+  <footer>
+    <p>Explore more quizzes and challenges</p>
+  </footer>
+  
+  <script>
+    function startQuiz(topic) {
+      // Redirect to question.html with the topic in the URL parameters
+      window.location.href = `question.html?topic=${encodeURIComponent(topic)}`;
+    }
+
+    // Check if the user is logged in and display the username
+    window.onload = function() {
+      const userGreeting = document.getElementById('greeting');
+      const logoutButton = document.getElementById('logout-button');
+      const username = sessionStorage.getItem('username');
+      
+      if (username) {
+        userGreeting.textContent = `Hello, ${username}!`;
+        logoutButton.style.display = 'inline-block';
+      } else {
+        userGreeting.textContent = 'Welcome, Guest!';
+      }
+    };
+
+    // Implement the logout functionality
+    document.getElementById('logout-button').addEventListener('click', function() {
+      sessionStorage.removeItem('username'); // Remove username from session storage
+      window.location.href = 'index.html'; // Redirect to index.html
+    });
+
+    // Implement the search functionality
+    document.getElementById('search-input').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase(); // Get the search term
+      const quizCards = document.querySelectorAll('.quiz-card'); // Get all quiz cards
+
+      quizCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase(); // Get the title of the quiz card
+        // Show or hide the quiz card based on the search term
+        if (title.includes(searchTerm)) {
+          card.style.display = ''; // Show card
+        } else {
+          card.style.display = 'none'; // Hide card
+        }
+      });
+    });
+  </script>
+</body>
+</html>

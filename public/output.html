@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Results</title>
+  <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-image: url('3.jpg'); /* Update with the correct image name and extension */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the background image */
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Header Styling */
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 2em;
+        color: #FFFF00;
+      }
+
+      /* Score Display Styling */
+      #score-display {
+        background-color: rgba(251, 250, 250, 1); /* Semi-transparent white background */
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+      }
+
+      #score-display p {
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* Button Styling */
+      button {
+        background-color: #4a90e2;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #357ab8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        header h1 {
+          font-size: 1.8em;
+        }
+
+        #score-display p {
+          font-size: 1em;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quiz Results</h1>
+  </header>
+
+  <section id="score-display">
+    <p>Your score: <span id="score"></span> out of <span id="total-questions"></span></p>
+  </section>
+  <button onclick="goBack()">Back to Quizzes</button>
+
+  <script>
+    const score = sessionStorage.getItem('score');
+    const totalQuestions = sessionStorage.getItem('totalQuestions');
+
+    document.getElementById('score').textContent = score;
+    document.getElementById('total-questions').textContent = totalQuestions;
+
+    function goBack() {
+      window.location.href = 'index1.html';
+    }
+  </script>
+</body>
+</html>

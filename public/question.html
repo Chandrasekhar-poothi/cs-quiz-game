@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Questions</title>
+  <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #f4f4f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Header Styling */
+      header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-size: 2em;
+        color: #4a90e2;
+      }
+
+      /* Quiz Topic Title */
+      #quiz-topic {
+        font-weight: bold;
+        color: #333;
+      }
+
+      /* Quiz Container */
+      #quiz-container {
+        width: 100%;
+        max-width: 600px;
+        margin-top: 20px;
+      }
+
+      .question {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+      }
+
+      .question h4 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      /* Options Styling */
+      label {
+        display: block;
+        margin: 5px 0;
+        font-size: 1em;
+        color: #555;
+      }
+
+      input[type="radio"] {
+        margin-right: 8px;
+      }
+
+      /* Submit Button */
+      #submit-button {
+        background-color: #4a90e2;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s ease;
+      }
+
+      #submit-button:hover {
+        background-color: #357ab8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        #quiz-container {
+          width: 90%;
+        }
+
+        header h1 {
+          font-size: 1.8em;
+        }
+
+        #submit-button {
+          width: 100%;
+        }
+      }
+      body {
+        background-image: url('1.jpg'); /* Update with the correct image name and extension */
+        background-size: cover; /* Cover the entire viewport */
+        background-position: center; /* Center the background image */
+        background-attachment: fixed; /* Make the background fixed */
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Quiz on <span id="quiz-topic"></span></h1>
+  </header>
+
+  <section id="quiz-container"></section>
+  <button id="submit-button" onclick="submitAnswers()">Submit Answers</button>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const topic = urlParams.get('topic');
+    document.getElementById('quiz-topic').textContent = topic;
+
+    function loadQuizQuestions(topic) {
+      fetch('/api/questions') // Fetch questions from the new API endpoint
+        .then(response => response.json())
+        .then(data => {
+          const questions = data[topic];
+          if (questions) {
+            displayQuestions(questions);
+          } else {
+            alert("No questions available for this topic.");
+          }
+        })
+        .catch(error => console.error('Error loading questions:', error));
+    }
+
+    function displayQuestions(questions) {
+      const quizContainer = document.getElementById('quiz-container');
+      quizContainer.innerHTML = '';
+      questions.forEach((question, index) => {
+        const questionElement = document.createElement('div');
+        questionElement.className = 'question';
+        questionElement.setAttribute('data-answer', question.answer); // Store correct answer
+        questionElement.innerHTML = `
+          <h4>${index + 1}. ${question.question}</h4>
+          ${question.options.map(option => `
+            <label>
+              <input type="radio" name="question${index}" value="${option}">
+              ${option}
+            </label><br>`).join('')}
+        `;
+        quizContainer.appendChild(questionElement);
+      });
+    }
+
+    function submitAnswers() {
+      const quizContainer = document.getElementById('quiz-container');
+      const questions = quizContainer.querySelectorAll('.question');
+      let score = 0;
+
+      questions.forEach((questionDiv, index) => {
+        const correctAnswer = questionDiv.getAttribute('data-answer');
+        const selectedOption = questionDiv.querySelector(`input[name="question${index}"]:checked`);
+        if (selectedOption && selectedOption.value === correctAnswer) {
+          score++;
+        }
+      });
+
+      // Store score and redirect to output.html
+      sessionStorage.setItem('score', score);
+      sessionStorage.setItem('totalQuestions', questions.length);
+      window.location.href = 'output.html';
+    }
+
+    loadQuizQuestions(topic); // Load quiz questions for the selected topic
+  </script>
+</body>
+</html>

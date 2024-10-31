@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Background gradient */
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    }
+
+    /* Login container */
+    .login-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    .login-container h2 {
+      margin-bottom: 1rem;
+      font-size: 24px;
+      color: #333;
+    }
+
+    /* Form styling */
+    .login-form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-form label {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .login-form input {
+      width: 100%;
+      padding: 10px;
+      padding-left: 30px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-form i {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      color: #aaa;
+    }
+
+    .forgot-password {
+      font-size: 14px;
+      color: #00d2ff;
+      text-decoration: none;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    /* Login button */
+    .login-button {
+      background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-button:hover {
+      background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+    }
+
+    /* Social login section */
+    .social-login {
+      margin-top: 1rem;
+    }
+
+    .social-login p {
+      margin-bottom: 0.5rem;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-icon {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 50%;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    /* Back button styling */
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 18px;
+      background: none;
+      border: none;
+      color: #000506;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <button class="back-button" onclick="window.location.href='index.html'">&larr; Back</button>
+    <h2>Login</h2>
+    <form class="login-form" action="/login" method="POST">
+      <label for="username">
+        <i class="fas fa-user"></i>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </label>
+      <label for="password">
+        <i class="fas fa-lock"></i>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </label>
+      <a href="#" class="forgot-password" onclick="handleForgotPassword()">Forgot password?</a>
+      <button type="submit" class="login-button">Login</button>
+      <div class="social-login">
+        <p>Or <a href="signup.html">Sign Up</a></p>
+      </div>
+    </form>
+  </div>
+  <script>
+    function handleForgotPassword() {
+      alert("Sorry, you can't change your password. Please create a new account.");
+      window.location.href = 'signup.html';
+    }
+  </script>
+</body>
+</html>

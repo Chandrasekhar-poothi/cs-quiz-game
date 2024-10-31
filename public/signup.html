@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    /* Reset and basic styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Background styling */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f2f6fc;
+    }
+
+    /* Sign-up form container */
+    .signup-container {
+      background: white;
+      width: 350px;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .signup-container h2 {
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+
+    /* Form styling */
+    .signup-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .signup-form input[type="text"],
+    .signup-form input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    /* Checkbox styling */
+    .terms {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .terms input {
+      margin-right: 8px;
+    }
+
+    /* Button styling */
+    .signup-button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .signup-button:hover {
+      background: #357ABD;
+    }
+
+    /* Login link */
+    .login-link {
+      font-size: 14px;
+      color: #4a90e2;
+      margin-top: 1rem;
+      display: inline-block;
+    }
+
+    .login-link:hover {
+      text-decoration: underline;
+    }
+    /* Back button styling */
+    .back-button {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 18px;
+      background: none;
+      border: none;
+      color: #060808;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .back-button:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <button class="back-button" onclick="window.location.href='index.html'">&larr; Back</button>
+    <h2>Sign up</h2>
+    <form class="signup-form" action="/signup" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="text" name="age" placeholder="Age" required>
+      <input type="text" name="username" placeholder="Username" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <label class="terms">
+        <input type="checkbox" required>
+        Remember me
+      </label>
+      <button type="submit" class="signup-button">Sign Up</button>
+    </form>
+    <a href="login.html" class="login-link">Already have an account? Login</a>
+  </div>
+  <script ></script>
+</body>
+</html>
