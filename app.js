@@ -4,11 +4,11 @@ const axios = require('axios');
 const path = require('path');
 const fs = require('fs');
 const { MongoClient } = require('mongodb');
-const dotenv = require('dotenv');
+
 const app = express();
 const PORT = 3000;
-dotenv.config();
-const uri = process.env.MONGO_URL; // Use the environment variable
+
+const uri = 'mongodb+srv://chandrasekharp2004:chandra%4022@cs-quiz-game.nietw.mongodb.net/?retryWrites=true&w=majority&appName=cs-quiz-game'
 const client = new MongoClient(uri);
 
 app.use(express.static(path.join(__dirname, 'public')));
