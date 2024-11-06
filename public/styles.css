@@ -29,7 +29,6 @@ body::before {
 }
 
 /* Header */
-/* Header */
 header {
   position: fixed; /* Keep the header fixed at the top */
   top: 0; /* Stick to the top */
@@ -59,6 +58,7 @@ header h1 {
 #logo {
   width: 44px; /* Adjust logo size */
   height: 40px;
+  max-width: 100%; /* Prevent logo from being too large */
   margin-right: 3px; /* Smaller margin between logo and text */
   border-radius: 30%; /* Make the logo circular */
   object-fit: contain; /* Ensure the logo fits within its container */
@@ -107,12 +107,13 @@ header nav ul li a:hover {
 /* Quiz Cards Section */
 .quiz-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusted min-width for responsiveness */
-  gap: 60px; /* Reduced gap for a tighter layout */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* More flexible layout for responsiveness */
+  gap: 30px; /* Smaller gap between cards */
   padding: 50px;
-  margin-top: 100px; /* Space for the fixed header */
+  margin-top: calc(100px + 20px); /* Space for fixed header and a bit of extra space */
   margin-bottom: 20px; /* Additional space at the bottom */
-  /* Ensures it takes the remaining space */
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding and margin in total width */
 }
 
 /* Quiz Card Styling */
@@ -132,7 +133,7 @@ header nav ul li a:hover {
 
 .quiz-card img {
   width: 100%;
-  height: 75%;
+  height: auto; /* Ensure the image maintains its aspect ratio */
   border-radius: 8px;
   margin-bottom: 15px;
 }
