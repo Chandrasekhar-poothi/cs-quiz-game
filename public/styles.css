@@ -11,8 +11,9 @@ body {
   background: url('background.jpg') no-repeat center center fixed; /* Background image */
   background-size: cover; /* Ensures the image covers the entire background */
   color: #333;
-  position: relative;
-  padding-bottom: 80px; /* Increased space for the footer */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the body takes full viewport height */
 }
 
 /* Optional: Semi-transparent overlay for readability */
@@ -44,8 +45,20 @@ header {
 }
 
 header h1 {
+  display: flex;
+  align-items: center;
   font-size: 24px;
   font-weight: bold;
+  margin-left: 10px; /* Reduce space between logo and title */
+}
+
+/* Logo */
+#logo {
+  width: 44px; /* Adjust logo size */
+  height: 40px;
+  margin-right: 3px; /* Smaller margin between logo and text */
+  border-radius: 30%; /* Make the logo circular */
+  object-fit: cover;
 }
 
 header input[type="text"] {
@@ -89,11 +102,12 @@ header nav ul li a:hover {
 /* Quiz Cards Section */
 .quiz-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Adjusted min-width */
-  gap: 70px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusted min-width for responsiveness */
+  gap: 60px; /* Reduced gap for a tighter layout */
   padding: 50px;
-  margin-top: 100px; /* Added margin to account for the fixed header */
+  margin-top: 100px; /* Space for the fixed header */
   margin-bottom: 20px; /* Additional space at the bottom */
+  flex-grow: 1; /* Ensures it takes the remaining space */
 }
 
 /* Quiz Card Styling */
@@ -111,6 +125,13 @@ header nav ul li a:hover {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
+.quiz-card img {
+  width: 100%;
+  height: 75%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
 .quiz-card h3 {
   font-size: 20px;
   color: #3d5af1;
@@ -124,18 +145,68 @@ header nav ul li a:hover {
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #3d5af1;
+  background-color: #3d5af1; /* Footer background color */
   color: white;
-  position: fixed; /* Fixed position */
-  bottom: 0; /* Sticks to the bottom */
-  left: 0; /* Sticks to the left */
-  right: 0; /* Sticks to the right */
-  z-index: 1000; /* Ensure it stays above other elements */
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: auto; /* Ensures footer stays at the bottom of the page */
 }
 
-/* Animations for hover */
-.quiz-card:hover h3 {
-  color: #ff595e;
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #ccc;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.brand h2 {
+  font-size: 24px;
+}
+
+.contact h3, .links h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.contact hr {
+  border: 0;
+  height: 1px;
+  background: #ffffff;
+  width: 500px;
+  margin: 10px 0;
+}
+
+.footer-section p {
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* Links styling */
+.links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.links ul li {
+  margin-bottom: 8px;
+}
+
+.links ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.links ul li a:hover {
+  text-decoration: underline;
 }

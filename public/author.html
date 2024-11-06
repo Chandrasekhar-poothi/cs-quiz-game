@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .author-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 40px;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .author-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .author-name {
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .author-title {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .progress-section {
+            margin-bottom: 20px;
+        }
+
+        .progress-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .progress-bar span {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .progress-bar div {
+            flex: 1;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .progress-bar div .progress {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #6a1b9a;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a img {
+            width: 24px;
+            height: 24px;
+            transition: transform 0.2s;
+        }
+
+        .social-links a img:hover {
+            transform: scale(1.1);
+        }
+
+        .author-bio {
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .author-bio h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .author-bio p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="author-container">
+        <img src="cs.jpg" alt="Author Image" class="author-image">
+        <h2 class="author-name">chandrasekhar Reddy</h2>
+        <p class="author-title">Quiz Creator</p>
+
+        <div class="progress-section">
+            <div class="progress-bar">
+                <span>Creativity</span>
+                <div><div class="progress" style="width: 85%;"></div></div>
+                <span>85%</span>
+            </div>
+            <div class="progress-bar">
+                <span>Popularity</span>
+                <div><div class="progress" style="width: 100%;"></div></div>
+                <span>100%</span>
+            </div>
+        </div>
+
+        <div class="social-links">
+            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+        </div>
+
+        <div class="author-bio">
+            <h3>About The Author</h3>
+            <p>Silvan Schuppisser is the creator of this engaging quiz game, bringing knowledge and fun together...</p>
+        </div>
+    </div>
+</body>
+</html>
