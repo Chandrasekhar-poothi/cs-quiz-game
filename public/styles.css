@@ -5,15 +5,13 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
-
 /* Body Styling */
 body {
   background: url('background.jpg') no-repeat center center fixed; /* Background image */
   background-size: cover; /* Ensures the image covers the entire background */
   color: #333;
-  display: flex;
-  flex-direction: column;
-  /* Ensures the body takes full viewport height */
+  position: relative;
+  padding-bottom: 80px; /* Increased space for the footer */
 }
 
 /* Optional: Semi-transparent overlay for readability */
@@ -29,9 +27,8 @@ body::before {
 }
 
 /* Header */
-/* Header */
 header {
-  position: fixed; /* Keep the header fixed at the top */
+  position: fixed; /* Make the header fixed */
   top: 0; /* Stick to the top */
   left: 0; /* Stick to the left */
   right: 0; /* Stick to the right */
@@ -42,11 +39,9 @@ header {
   color: white;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Ensure the header stays above other elements */
-  width: 100%; /* Ensure full width */
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
-/* Header Title */
 header h1 {
   display: flex;
   align-items: center;
@@ -61,10 +56,9 @@ header h1 {
   height: 40px;
   margin-right: 3px; /* Smaller margin between logo and text */
   border-radius: 30%; /* Make the logo circular */
-  object-fit: contain; /* Ensure the logo fits within its container */
+  object-fit: cover;
 }
 
-/* Search Input */
 header input[type="text"] {
   padding: 8px;
   width: 200px;
@@ -78,7 +72,6 @@ header input[type="text"] {
 header nav ul {
   display: flex;
   list-style: none;
-  margin: 0; /* Reset default margin */
 }
 
 header nav ul li {
@@ -112,7 +105,7 @@ header nav ul li a:hover {
   padding: 50px;
   margin-top: 100px; /* Space for the fixed header */
   margin-bottom: 20px; /* Additional space at the bottom */
-  /* Ensures it takes the remaining space */
+  flex-grow: 1;
 }
 
 /* Quiz Card Styling */
@@ -148,13 +141,13 @@ header nav ul li a:hover {
   color: #666;
 }
 
+
 /* Footer */
 footer {
   background-color: #3d5af1; /* Footer background color */
   color: white;
   padding: 30px 20px;
   text-align: center;
-  margin-top: auto; /* Ensures footer stays at the bottom of the page */
 }
 
 .footer-container {
@@ -195,6 +188,7 @@ footer {
   padding-top: 10px;
   font-size: 14px;
   color: #cccccc;
+  position: sticky;
 }
 
 /* Links styling */
