@@ -1,19 +1,22 @@
-/* Reset default styling */
-* {
+/* CSS Reset */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif; /* Default font */
 }
 
 /* Body Styling */
 body {
-  background: url('background.jpg') no-repeat center center fixed; /* Background image */
+  background: url('background.jpg') no-repeat center center fixed;
   background-size: cover; /* Ensures the image covers the entire background */
   color: #333;
   display: flex;
   flex-direction: column;
   min-height: 100vh; /* Ensures the body takes full viewport height */
+  font-size: 16px; /* Set a default font size */
 }
 
 /* Optional: Semi-transparent overlay for readability */
@@ -49,15 +52,14 @@ header h1 {
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  margin-left: 10px; /* Reduce space between logo and title */
+  margin-left: 10px;
 }
 
-/* Logo */
 #logo {
-  width: 44px; /* Adjust logo size */
+  width: 44px;
   height: 40px;
-  margin-right: 3px; /* Smaller margin between logo and text */
-  border-radius: 30%; /* Make the logo circular */
+  margin-right: 3px;
+  border-radius: 30%;
   object-fit: cover;
 }
 
@@ -103,11 +105,13 @@ header nav ul li a:hover {
 .quiz-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjusted min-width for responsiveness */
-  gap: 60px; /* Reduced gap for a tighter layout */
+  gap: 60px;
   padding: 50px;
   margin-top: 100px; /* Space for the fixed header */
-  margin-bottom: 20px; /* Additional space at the bottom */
-  flex-grow: 1; /* Ensures it takes the remaining space */
+  margin-bottom: 20px;
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Quiz Card Styling */
@@ -145,11 +149,11 @@ header nav ul li a:hover {
 
 /* Footer */
 footer {
-  background-color: #3d5af1; /* Footer background color */
+  background-color: #3d5af1;
   color: white;
   padding: 30px 20px;
   text-align: center;
-  margin-top: auto; /* Ensures footer stays at the bottom of the page */
+  margin-top: auto;
 }
 
 .footer-container {
