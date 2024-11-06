@@ -55,7 +55,7 @@ header h1 {
 }
 
 /* Logo */
-#logo {
+.logo {
   width: 44px; /* Adjust logo size */
   height: 40px;
   max-width: 100%; /* Prevent logo from being too large */
@@ -107,7 +107,7 @@ header nav ul li a:hover {
 /* Quiz Cards Section */
 .quiz-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* More flexible layout for responsiveness */
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); /* More flexible layout for responsiveness */
   gap: 30px; /* Smaller gap between cards */
   padding: 50px;
   margin-top: calc(100px + 20px); /* Space for fixed header and a bit of extra space */
@@ -133,7 +133,7 @@ header nav ul li a:hover {
 
 .quiz-card img {
   width: 100%;
-  height: auto; /* Ensure the image maintains its aspect ratio */
+  height: 75%; /* Ensure the image maintains its aspect ratio */
   border-radius: 8px;
   margin-bottom: 15px;
 }
